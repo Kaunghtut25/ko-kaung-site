@@ -38,7 +38,7 @@ def handle_update(update):
     elif text.startswith("/about"):
         send_message(chat_id, "👤 <b>Ko Kaung</b>\n"
                               "Developer from Myanmar 🇲🇲\n"
-                              "GitHub: github.com/dadkaung")
+                              "GitHub: github.com/Kaunghtut25")
 
     elif text.startswith("/ping"):
         send_message(chat_id, "🏓 Pong! I'm alive.")

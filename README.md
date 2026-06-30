@@ -23,7 +23,7 @@ Every `git push` auto-deploys.
 3. Run:
 
 ```bash
-git clone https://github.com/dadkaung/ko-kaung-site.git
+git clone https://github.com/Kaunghtut25/ko-kaung-site.git
 cd ko-kaung-site/bot
 export BOT_TOKEN="your_token_from_BotFather"
 python3 bot.py
