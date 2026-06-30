@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ko Kaung</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Ko Kaung</h1>
+    <p class="tagline">Developer, Builder, Learner</p>
+
+    <div class="links">
+      <a href="https://github.com/dadkaung" target="_blank">GitHub</a>
+      <span class="sep">·</span>
+      <a href="mailto:dadkaunghtut@gmail.com">Email</a>
+    </div>
+
+    <div class="status" id="status">
+      <span class="dot" id="status-dot"></span>
+      <span id="status-text">Bot: checking...</span>
+    </div>
+  </main>
+
+  <script>
+    fetch('https://api.github.com/users/dadkaung/events/public')
+      .then(r => r.json())
+      .then(data => {
+        const recent = data[0];
+        const dot = document.getElementById('status-dot');
+        const text = document.getElementById('status-text');
+        if (recent) {
+          dot.classList.add('online');
+          text.textContent = `Last seen: ${new Date(recent.created_at).toLocaleDateString()}`;
+        }
+      })
+      .catch(() => {
+        document.getElementById('status-dot').classList.add('offline');
+        document.getElementById('status-text').textContent = 'Bot: idle';
+      });
+  </script>
+</body>
+</html>
